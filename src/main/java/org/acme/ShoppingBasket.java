@@ -26,4 +26,10 @@ public class ShoppingBasket extends PanacheEntity {
     )
     @JoinColumn(name = "book_id")
     public List<Book> cart = new ArrayList<>();
+
+    public double calculateTotal() {
+        return cart.stream()
+            .mapToDouble(b -> b.price)
+            .sum();
+    }
 }
