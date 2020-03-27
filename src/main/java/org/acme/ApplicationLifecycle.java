@@ -36,7 +36,10 @@ public class ApplicationLifecycle {
     }
 
     void onStop(@Observes ShutdownEvent event) {
-        mockServer.stop();
+        
+        if (mockServer!= null) {
+            this.mockServer.stop();
+        }
     }
     
 }
