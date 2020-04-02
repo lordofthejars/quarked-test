@@ -14,4 +14,9 @@ public class Invoice extends PanacheEntity {
     public ShoppingBasket shoppingBasket;
     
     public double total;
+
+    public static Invoice findInvoiceByTransaction(long id) {
+        return find("shoppingBasket.transactionId", id).firstResult();
+    }
+
 }

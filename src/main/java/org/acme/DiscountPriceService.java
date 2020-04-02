@@ -13,7 +13,8 @@ public class DiscountPriceService implements PriceService {
 	@Override
 	public double calculate(ShoppingBasket shoppingBasket) {
 		double total = shoppingBasket.calculateTotal();
-		double discount = Double.parseDouble(discountGateway.getDiscount(Double.toString(total)));
+		String responseDiscount = discountGateway.getDiscount(Double.toString(total));
+		double discount = Double.parseDouble(responseDiscount);
 
 		return total * (1 - discount);
 	}
